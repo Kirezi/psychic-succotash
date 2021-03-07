@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
-import { observer } from 'mobx-react'
-import styled from 'styled-components'
-import { observable } from 'mobx';
-import { v4 as uuid} from 'uuid';
-
-import TodoListItem from './TodoListItem'
-
+import { observer } from 'mobx-react';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { createTodoStore } from '../store/TodoStore';
+import CompletedItem from './CompletedItem';
+import InProgressItem from './InProgressItem';
+import TodoListItem from './TodoListItem';
 
 function TodoList({ className }) {
     const [ store ] = useState(createTodoStore);
@@ -22,7 +21,7 @@ function TodoList({ className }) {
                             key={item.id}
                             name={item.name}
                             isComplete={item.isComplete}
-                            onComplete={() => store.setCompleted(item.id)}
+                            onComplete={() => store.setInProgress(item.id)}
                             onChange={(e) => store.setItemName(item.id, e.target.value)}
                         />
                     ))}
@@ -32,57 +31,40 @@ function TodoList({ className }) {
                 </button>
             </section>
             <footer>
+                <h2>In Progress</h2>
+                <ul>
+                {store.inProgressItems.map(item =>(
+
+          <InProgressItem key={item.id} item={item} onDelete={() => {store.deleteItem(item.id)}}/>
+))}
+                </ul>
                 <h2 className="completedTitle">Completed Items</h2>
                 <ul>
-                    {store.completedItems.map(item => (
-                        <li key={item.id}>
-                            {item.name}
-                        </li>
+                    {store.completedItems.map(item =>  (
+
+                        <CompletedItem key={item.id} item={item} onDelete={() => {store.deleteItem(item.id)}}/>
                     ))}
                 </ul>
+
             </footer>
         </div>
+
     )
 }
 
-function createTodoStore() {
-    const self = observable({
-        items: [{
-            id: uuid(),
-            name: "Sample item",
-            isComplete: false,
-        }],
-
-        get activeItems() {
-            return self.items.filter(i => !i.isComplete);
-        },
-        get completedItems() {
-            return self.items.filter(i => i.isComplete);
-        },
-
-        addItem() {
-            self.items.push({
-                id: uuid(),
-                name: `Item ${self.items.length}`,
-            });
-        },
-        setItemName(id, name) {
-            const item = self.items.find(i => i.id === id);
-            item.name = name;
-        },
-        setCompleted(id) {
-            const item = self.items.find(i => i.id === id);
-            item.isComplete = true;
-        },
-    })
-
-    return self;
-}
 
 export default styled(observer(TodoList))`
     background-color: lightgray;
+    padding:10px;
 
     .title {
-        color: orange;
+        color: #3b82f5;
+        text-align:center;
+    };
+
+    .completedTitle{
+        margin-left:10px;
+        background-color: white
     }
+
 `
