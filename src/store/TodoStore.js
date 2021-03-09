@@ -1,15 +1,15 @@
-import { observable } from "mobx";
-import { v4 as uuid } from "uuid";
+import { observable } from 'mobx';
+import { v4 as uuid } from 'uuid';
 
 function createTodoStore() {
   const self = observable({
-    focusInput: "",
-    seachFilter: "",
-    actionLogs: [""],
+    focusInput: '',
+    seachFilter: '',
+    actionLogs: [''],
     items: [
       {
         id: uuid(),
-        name: "Sample item",
+        name: 'Sample item',
         isComplete: false,
         isInProgress: false,
         tags: [],
@@ -87,7 +87,7 @@ function createTodoStore() {
     setItemName(id, name, ref) {
       const item = self.items.find((i) => i.id === id);
       item.name = name;
-      ref?.current?.focus();
+      ref.current.focus();
     },
     setCompleted(id) {
       const item = self.items.find((i) => i.id === id);

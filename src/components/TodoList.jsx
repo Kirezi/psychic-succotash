@@ -146,9 +146,9 @@ function TodoList({ className }) {
     padding-top:10px;
     padding-bottom:10px;
     &:focus{
-    outline:none;
-    color:black;
-    background-color:#F5F5F5;
+        outline:none;
+        color:black;
+        background-color:#F5F5F5;
     }
     `;
 
@@ -220,9 +220,7 @@ function TodoList({ className }) {
                         </Header2>
 
                         <Ul>
-                            {store.inProgressItems.map(item => (
-
-                                <InProgressItem key={item.id} item={item} deleteTag={store.deleteTag} handleAddTag={handleAddTag} onEdit={handleEdit} onDelete={() => { store.deleteItem(item.id) }} setAnimate={() => { store.setAnimate(item.id) }} onComplete={() => { store.setCompleted(item.id) }} />
+                            {store.inProgressItems.map(item => ( <InProgressItem key={item.id} item={item} deleteTag={store.deleteTag} handleAddTag={handleAddTag} onEdit={handleEdit} onDelete={() => { store.deleteItem(item.id) }} setAnimate={() => { store.setAnimate(item.id) }} onComplete={() => { store.setCompleted(item.id) }} />
                             ))}
                         </Ul>
                         < Header2>
@@ -230,9 +228,7 @@ function TodoList({ className }) {
                         </Header2>
 
                         <Ul>
-                            {store.completedItems.map(item => (
-
-                                <CompletedItem key={item.id} item={item} deleteTag={store.deleteTag} handleAddTag={handleAddTag} setAnimate={() => { store.setAnimate(item.id) }} onDelete={() => { store.deleteItem(item.id) }} />
+                            {store.completedItems.map(item => ( <CompletedItem key={item.id} item={item} deleteTag={store.deleteTag} handleAddTag={handleAddTag} setAnimate={() => { store.setAnimate(item.id) }} onDelete={() => { store.deleteItem(item.id) }} />
                             ))}
                         </Ul>
 
@@ -273,6 +269,6 @@ export default styled(observer(TodoList))`
     .completedTitle{
         margin-left:10px;
         background-color: black;
-    }
+    };
 
 `
