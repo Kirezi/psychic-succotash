@@ -5,7 +5,7 @@ function createTodoStore() {
   const self = observable({
     focusInput: "",
     seachFilter: "",
-    actionLogs: ["item added blah blah"],
+    actionLogs: [""],
     items: [
       {
         id: uuid(),
@@ -73,8 +73,10 @@ function createTodoStore() {
     },
     addTag(id, tagName) {
       const item = self.items.find((i) => i.id === id);
-      item.tags.push(tagName);
-      self.actionLogs.push(`Tag Added: ${tagName}`);
+      if (tagName) {
+        item.tags.push(tagName);
+        self.actionLogs.push(`Tag Added: ${tagName}`);
+      }
     },
     deleteTag(id, tage) {
       const item = self.items.find((i) => i.id === id);

@@ -35,14 +35,13 @@ function TodoList({ className }) {
    `
     const Header2 = styled.header`
     text-align:center;
-    color:white;
+    color:tomato;
     font-weight:500;
     margin:0px;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(207,41,75,1) 0%, rgba(136,11,11,1) 3%, rgba(204,125,41,1) 100%, rgba(255,0,168,1) 100%);
-    min-width: 150px;
+    background: #F5F5F5;
+    min-width: 200px;
     font-size: 18px;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #F5F5F5;
     border-radius:2px;
     display:absolute;
     align-self: baseline;
@@ -71,17 +70,15 @@ function TodoList({ className }) {
     const Button = styled.section`
     padding:10px;
     margin-top:5px;
-    background:rgba(0,0,0,0);
     color:black;
     width:150px;
     border-radius:3px;
-    border: 3px solid #ab7b03;
+    border: 2px solid #F5F5F5;
     transition: all 0.2s ease-in;
     cursor:pointer;
 ;    &:hover{
-        border-color:#b90000;
-        background-color:#b90000;
-        color:white;
+        border-color:#F5F5F5;
+        background-color:#F5F5F5;
     }
    `
     const FormButton = styled.li`
@@ -117,28 +114,28 @@ function TodoList({ className }) {
     color:black;
     font-size:20px;
     font-weight:500;
-    border: 3px solid rgb(199,1,98);
+    border: 3px solid #F5F5F5;
     background-color:rgba(0,0,0,0);
     cursor:pointer;
     margin:4px;
     transition:all 0.4s ease-in;
     &:hover{
-        border-color:#b90000;
-        background-color:#b90000;
+        border-color:#F5F5F5;
+        background-color:tomato;
         color:white;
     }
 `;
     const TagInput = styled.input`
     text-align:center;
     color:black;
-    font-weight:500;
+    font-weight:350;
     margin:0px;
     background: rgba(0,0,0,0);
     border:none;
-    border:2px solid tomato;
+    border:none;
     width: 400px;
-    font-size: 26px;
-    border-radius:16px;
+    font-size: 20px;
+    border-radius:5px;
     display:absolute;
     align-self: center;
     margin: 5px;
@@ -148,11 +145,10 @@ function TodoList({ className }) {
     padding-left:5px;
     padding-top:10px;
     padding-bottom:10px;
-    transition: all 0.2s ease-in;
     &:focus{
     outline:none;
-    color:white;
-    background-color:#b90000;
+    color:black;
+    background-color:#F5F5F5;
     }
     `;
 
@@ -216,7 +212,7 @@ function TodoList({ className }) {
                          </Button>
                     </Section>
                     <Section>
-                        <TagInput autoFocus={store.getFocusInput === "tagSearch"} key={"tagInput"} name="tagInput" ref={tagInputRef} type="text" onChange={(e) => { store.setFilter(e.target.value); setFilter(e.target.value); store.setFocusInput("tagSearch") }} value={filter} placeholder="search a tag" />
+                        <TagInput autoFocus={store.getFocusInput === "tagSearch"} key={"tagInput"} name="tagInput" ref={tagInputRef} type="text" onChange={(e) => { store.setFilter(e.target.value); setFilter(e.target.value); store.setFocusInput("tagSearch") }} value={filter} placeholder="filter by a tag" />
                     </Section>
                     <Section>
                         <Header2>
@@ -276,7 +272,7 @@ export default styled(observer(TodoList))`
 
     .completedTitle{
         margin-left:10px;
-        background-color: white
+        background-color: black;
     }
 
 `

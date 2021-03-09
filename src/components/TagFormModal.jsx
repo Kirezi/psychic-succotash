@@ -34,9 +34,8 @@ const TagFormModal = ({ id, toggleModal, addTag }) => {
     padding 18px 40px;
     font-size:22px;
     font-weght:400;
-    color:white;
-    background: rgb(199,1,98);
-    background: linear-gradient(90deg, rgba(199,1,98,1) 18%, rgba(36,0,27,1) 100%, rgba(0,212,255,1) 100%);
+    color:black;
+    background-color: #F5F5F5;
     border:none;
     border-bottom:2px solid;
     `

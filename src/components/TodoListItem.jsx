@@ -10,21 +10,27 @@ function TodoListItem({ className, name, onComplete, onChange, FocusInput }) {
 
     const Input = styled.input`
             width:300px;
-            padding:15px;
+            padding:14px;
             display:inline-block;
+            border-radius:5px;
+            border:none;
+            &:focus{
+                 border:none;
+                }
     `;
 
     const Button = styled.li`
-    padding:14px;
-    color:white;
+    padding:11px;
+    color:black;
     font-weight:500;
     display:inline-block;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(122,129,112,1) 0%, rgba(207,41,75,1) 0%, rgba(255,0,95,1) 100%);
+    border: 2px solid #F5F5F5;
+    border-radius:5px;
+    margin-left:0.3rem;
     transition:all 0.2s ease-in;
     &:hover{
-        background: rgb(2,0,36);
-        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(207,41,75,1) 0%, rgba(117,112,129,1) 0%, rgba(204,41,63,1) 0%, rgba(255,0,168,1) 100%);
+        background-color:#F5F5F5;
+        color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(207,41,75,1) 0%, rgba(117,112,129,1) 0%, rgba(204,41,63,1) 0%, rgba(255,0,168,1) 100%);
     }
     `;
 
