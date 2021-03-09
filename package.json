@@ -44,6 +44,11 @@
     "@storybook/addon-links": "^6.1.16",
     "@storybook/node-logger": "^6.1.16",
     "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.20"
+    "@storybook/react": "^6.1.20",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "prettier": "^2.2.1"
   }
 }
