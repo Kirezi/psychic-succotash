@@ -12,6 +12,7 @@ function createTodoStore() {
         name: 'Sample item',
         isComplete: false,
         isInProgress: false,
+        animate: false,
         tags: [],
       },
     ],
